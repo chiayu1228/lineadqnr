@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="img/LINE AD_img1.png">
+    <title>使用LINE+CARE突破補教行銷新思維</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/icon.png" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style type="text/css">
+        /* CSS 初始化 */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            box-sizing: border-box;
+
+            /* border: 1px solid #ddd; */
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: middle;
+            border: none;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none
+        }
+
+        /* CSS 初始化 */
+
+        body {
+            background: #0088cc;
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container-full {
+            width: 100%;
+            /* height: 100%; */
+        }
+
+        .container {
+            width: 1000px;
+            /* height: 100%; */
+        }
+
+        .text_postion {
+            padding: 40px 0;
+        }
+
+        .text_postion.text_block img.logo {
+            height: 36px;
+            vertical-align: -1%;
+        }
+
+        .text {
+            font-size: 36px;
+            text-align: center;
+            font-weight: 600;
+            padding: 0 30px;
+
+            line-height: 1.8;
+            letter-spacing: 3px;
+        }
+
+        .text.text-lg {
+            font-size: 44px;
+        }
+
+        .text.text-md {
+            font-size: 42px;
+        }
+
+        .text.text-sm {
+            font-size: 32px;
+        }
+
+        .text.white {
+            color: #FFF;
+        }
+
+        .text.gray {
+            color: #4d4d4d;
+            text-shadow: 0 0 0.1em #FFF, 0 0 0.1em #FFF,
+                0 0 0.1em #FFF;
+        }
+
+        .text.purple {
+            color: #996699;
+            text-shadow: 0 0 0.1em #FFF, 0 0 0.1em #FFF,
+                0 0 0.1em #FFF;
+        }
+
+        .text .yellow {
+            color: #ffcc33;
+            padding: 0 10px;
+        }
+
+        .btn {
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .btn.btn-orange {
+            font-size: 21px;
+            color: #FFF;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: 2px solid #FFF;
+            border-radius: 3px;
+            padding: 10px;
+            background: linear-gradient(to bottom, #fbb03b, #f7931e);
+            text-shadow: 0 0 0.1em #b3b3b3;
+            box-shadow: 0 0 0.1em #FFF, 0 0 0.1em #FFF,
+                0 0 0.1em #FFF;
+        }
+
+        .btn.btn-orange::before,
+        .btn.btn-orange::after {
+            font-size: 18px;
+            color: #fdd89f;
+        }
+
+        .btn.btn-orange::before {
+            content: ">>>";
+        }
+
+        .btn.btn-orange::after {
+            content: "<<<";
+        }
+
+        .btn>img {
+            transform: scale(.8);
+            transition: all .3s ease-in-out;
+        }
+
+        .btn:hover>img {
+            transform: scale(1);
+        }
+
+        .container-full.reciprocal {
+            position: sticky;
+            bottom: 0;
+            box-shadow: 0 -3px 9px 0 rgb(0 0 0 / 15%);
+            display: flex;
+            justify-content: center;
+            background: #4d4d4d;
+        }
+
+        .container-full.reciprocal .text_postion {
+            width: 1000px;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container-full.reciprocal .text_postion>p {
+            width: 60%;
+            padding-right: 10px;
+        }
+
+        /* .container-full.reciprocal .text_postion>a {
+            width: 40%;
+        } */
+
+        .container-full.reciprocal .text_postion button {
+            width: 300px;
+            margin: 0 30px;
+        }
+
+        .container-full .qnr {
+            background: #e5f6ff;
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            letter-spacing: 3px;
+        }
+
+        .qnr form {
+            font-size: 22px;
+            width: 1000px;
+        }
+
+        .qnr .input-group {
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .qnr .input-group .required::before {
+            content: '*';
+            color: red;
+            padding-right: 5px;
+        }
+
+        .qnr .input-group input[type="text"] {
+            width: 100%;
+            padding: 3px 12px;
+            border: #ccc 2px solid;
+            border-radius: 3px;
+            font-size: 24px;
+
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .qnr .input-group input[type="radio"] {
+            display: none;
+        }
+
+        .qnr .input-group input[type="radio"]+label {
+            color: #808080;
+        }
+
+        .qnr .input-group input[type="radio"]:checked+label {
+            color: #006699;
+        }
+
+        .qnr .input-group label::before {
+            display: inline-block;
+            width: 30px;
+        }
+
+        .qnr .input-group input[type="radio"]+label::before {
+            font-family: FontAwesome;
+            content: "\f096";
+        }
+
+        .qnr .input-group input[type="radio"]:checked+label::before {
+            font-family: FontAwesome;
+            content: "\f046";
+        }
+
+        .qnr .input-group>div {
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-shadow: 0 0 0.1em #FFF, 0 0 0.1em #FFF,
+                0 0 0.1em #FFF;
+        }
+
+        .qnr .input-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .qnr .input-row .input-group {
+            width: 48%;
+        }
+
+        .qnr .btn {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .container {
+                width: 100%;
+            }
+
+            .text_postion {
+                padding: 0 4vw;
+            }
+
+            .text_postion.text_block {
+                padding: 30px 4vw;
+            }
+
+            .text_postion.text_block img.logo {
+                height: 24px;
+            }
+
+            /* .text_postion .btn {
+                margin: 10px 0;
+            } */
+
+            .text {
+                font-size: 24px;
+                padding: 0;
+            }
+
+            .text.text-lg {
+                font-size: 30px;
+            }
+
+            .text.text-md {
+                font-size: 26px;
+            }
+
+            .text.text-sm {
+                font-size: 22px;
+            }
+
+            .btn>img {
+                transform: scale(1);
+            }
+
+            .container-full.reciprocal .text_postion {
+                width: 100%;
+                padding: 5px 4vw;
+            }
+
+            .container-full.reciprocal .text_postion>p {
+                font-size: 16px;
+            }
+
+            .container-full.reciprocal .text_postion>a {
+                width: 40%;
+            }
+
+            .container-full.reciprocal .text_postion button {
+                width: 100%;
+                margin: 0;
+                font-size: 16px;
+            }
+
+            .container-full.reciprocal .text_postion .btn.btn-orange::before,
+            .container-full.reciprocal .text_postion .btn.btn-orange::after {
+                display: none;
+            }
+
+            .container-full .qnr {
+                padding: 0;
+            }
+
+            .qnr form {
+                width: 100%;
+                padding: 30px 4vw;
+            }
+
+            .qnr .input-row {
+                display: block;
+            }
+
+            .qnr .input-row .input-group {
+                width: 100%;
+            }
+
+            .qnr .input-group input[type="radio"]+label {
+                letter-spacing: 0;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="container">
+            <img src="img/LINE AD_img1.png" style="width: 100%;">
+            <div class="text_postion">
+                <a href="#qnr">
+                    <button class="btn" type="button">
+                        <img src="img/button_orange1.png" style="width:100%;" alt="我要報名">
+                    </button>
+                </a>
+            </div>
+
+            <img src="img/LINE AD_img2.png" style="width: 100%;">
+            <div class="text_postion text_block">
+                <p class="text white">
+                    危機就是轉機，掌握後疫情時代的補教行銷新思維<br>
+                    經營者您好<br>
+                    這是場為<span class="yellow" style="text-decoration:underline;">想在後疫情時代取得先機</span>的人而舉辦的
+                </p>
+
+                <a href="#qnr">
+                    <button class="btn" type="button">
+                        <img src="img/button_orange1.png" style="width: 100%;" alt="我要報名">
+                    </button>
+                </a>
+
+                <p class="text white">
+                    我們將跟您分享<br>
+                    如何透過使用線上數位工具<br>
+                    幫您的教育事業建構疫情後的新營運型態<br>
+                    達到招生滿班，增加營收的目標
+                </p>
+            </div>
+            <!-- <img src="img/LINE AD_img3.png" style="width: 100%;"> -->
+            <img src="img/LINE AD_img4.png" style="width: 100%;">
+            <img src="img/LINE AD_img5.png" style="width: 100%;">
+        </section>
+
+        <section class="container-full">
+            <div class="text_postion text_block" style="background:#006699;">
+                <p class="text white">
+                    本次分享會現場價<span class="yellow">NT$500元</span><br>
+                    報名線上講座，限時優惠 免費入場
+                </p>
+            </div>
+
+            <div class="text_postion text_block" style="background:#e5f6ff;">
+                <p class="text text-md gray">我很有興趣！我要報名</p>
+
+                <p class="text text-lg gray">
+                    [使用&nbsp;
+                    <img class="logo" src="./img/logo_LINE.svg" alt="LINE">
+                    +
+                    <img class="logo" src="./img/logo_CARE.svg" alt="CARE">
+                    &nbsp;突破補教行銷新思維]</p>
+
+                <p class="text text-sm purple">利用2小時了解LINE的經營策略！讓您做出差異化</p>
+            </div>
+        </section>
+
+        <section class="container-full reciprocal">
+            <div class="text_postion text_block">
+                <p class="text text-sm white">早鳥優惠免費入場<span class="yellow" id="time">00:00:00</span></p>
+                <a href="#qnr">
+                    <button class="btn btn-orange" type="button">
+                        我要報名
+                    </button>
+                </a>
+            </div>
+        </section>
+
+        <section class="container-full">
+            <div class="qnr" id="qnr">
+                <form autocomplete="off">
+                    <!-- 報名場次 -->
+                    <div class="input-group">
+                        <div class="required">選擇報名場次</div>
+
+                        <div><input id="date2" name="date" type="radio" value="2021/10/19(二) 10:30~12:00" /> <label
+                                for="date2">2021/10/19(二) 10:30~12:00</label></div>
+
+                        <div><input id="date3" name="date" type="radio" value="2021/10/22(五) 13:30~15:00" /> <label
+                                for="date3">2021/10/22(五) 13:30~15:30</label></div>
+
+                        <div><input id="date4" name="date" type="radio" value="2021/10/16(二) 10:30~12:00" /> <label
+                                for="date4">2021/10/26(二) 10:30~12:00</label></div>
+
+                        <div><input id="date5" name="date" type="radio" value="2021/10/29(五) 13:30~15:00" /> <label
+                                for="date5">2021/10/29(五) 13:30~15:30</label></div>
+                    </div>
+
+                    <div class="input-row">
+                        <!-- 姓名 -->
+                        <div class="input-group">
+                            <div class="required">姓名</div>
+                            <input name="name" type="text">
+                        </div>
+
+                        <!-- 電話 -->
+                        <div class="input-group">
+                            <div class="required">電話</div>
+                            <input name="phone" type="text">
+                        </div>
+                    </div>
+
+                    <!-- e-mail -->
+                    <div class="input-group">
+                        <div class="required">e-mail</div>
+                        <input name="mail" type="text">
+                    </div>
+
+                    <!-- 學校名稱 -->
+                    <!-- <div class="input-group">
+                        <div>學校名稱</div>
+                        <input name="schoolName" type="text">
+                    </div> -->
+
+                    <button class="btn btn-orange" id="submit" type="button">
+                        馬上送出
+                        <!-- <img src="img/button_orange2.png" srcset="img/button_orange2_mb.png 2x, img/button_orange2.png 1x" style="width: 100%;" /> -->
+                        <!-- <img src="img/button_orange2.png" style="width: 100%;"> -->
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+<script>
+    //+ 活動時間倒數
+    (function () {
+        var start = new Date;
+        start.setHours(24, 0, 0); //hh:mm:ss
+
+        function pad(num) {
+            return ("0" + parseInt(num)).substr(-2);
+        }
+
+        function tick() {
+            var now = new Date;
+            if (now > start) { // too late, go to tomorrow
+                start.setDate(start.getDate() + 1);
+            }
+            var remain = ((start - now) / 1000);
+            var hh = pad((remain / 60 / 60) % 60);
+            var mm = pad((remain / 60) % 60);
+            var ss = pad(remain % 60);
+            document.getElementById('time').innerHTML = hh + ":" + mm + ":" + ss;
+
+            setTimeout(tick, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', tick);
+    })();
+    //- 活動時間倒數
+
+    $(function () {
+
+        $('#submit').on('click', function () {
+
+            // 報名場次
+            var date = function () {
+                var v;
+                $('[name="date"]').each(function () {
+                    if ($(this).prop('checked') === true) v = $(this).val();
+                });
+                return v;
+            };
+
+            // 姓名
+            var name = $('[name="name"]').val();
+            // 電話
+            var phone = $('[name="phone"]').val();
+            // e-mail
+            var mail = $('[name="mail"]').val();
+            // 學校名稱
+            // var schoolName = $('[name="schoolName"]').val();
+
+
+            //+ 驗證問卷 checkForm
+            var check = $("[name='date']:checked").length; //判斷有多少個方框被勾選
+            if (check == 0) {
+                alert("報名場次還沒勾選！");
+                return false;
+            };
+
+            if (name == null || name == '') {
+                alert('姓名不能空白！');
+                return false;
+            };
+            if (phone == null || phone == '') {
+                alert('電話不能空白！');
+                return false;
+            };
+
+            if (mail == null || mail == '') {
+                alert('e-mail 不能空白！');
+                return false;
+            };
+
+            //Regular expression Testing
+            emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+
+            if (mail.search(emailRule) == -1) {
+                alert("e-mail 格式有誤！");
+                return false;
+            };
+
+            // return true;
+            // console.log('成功！')
+
+            //- 驗證問卷 checkForm
+
+            // post
+            var data = {
+                'entry.1128750005': date(),
+                'entry.1380459887': name,
+                'entry.2042201428': phone,
+                'entry.1933220747': mail,
+                // 'entry.1666120611': schoolName
+            };
+
+            console.log(data)
+
+            $.ajax({
+                type: 'POST',
+                url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdh57N30GoBn5M-_Lnb8ZRGZSUxxXyo4kqS8DkrUgz1REHbcQ/formResponse',
+                data: data,
+                contentType: 'application/json',
+                dataType: 'jsonp',
+                complete: function () {
+                    alert('報名成功！我們將安排專員與您聯繫');
+
+                    $("form")[0].reset();
+                },
+            });
+        });
+    });
+</script>
+
+</html>
